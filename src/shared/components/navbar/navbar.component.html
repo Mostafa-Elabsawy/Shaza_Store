@@ -1,0 +1,193 @@
+<header class="sticky top-1 left-0 z-60 w-full bg-[#031410]/95 shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
+
+
+
+    <!-- Main Navigation -->
+    <div class=" flex  h-20 w-full items-center justify-between overflow-hidden border-y border-gold-antique/50 md:px-6 px-3 ">
+        <div class="max-w-7xl mx-auto flex h-20 w-full items-center justify-between     sm:px-6  ">
+
+            <!-- Logo -->
+            <a class="group flex  h-full items-center ">
+                <img alt="SHAZA Fragrances" class="  justify-center sm:h-13 max-sm:h-10  object-contain" src="./Shaza.png" />
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class=" hidden w-auto items-center gap-8 lg:flex  m-1">
+                <a class="nav-item" routerLink="/home" routerLinkActive="active" href="#">Home</a>
+                <a class="nav-item" routerLink="/about" routerLinkActive="active" href="#">ABOUT</a>
+                <a class="nav-item" routerLink="/shop" routerLinkActive="active" href="#">SHOP</a>
+                <a class="nav-item" routerLink="/contact" routerLinkActive="active" href="#">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center  lg:gap-4 md:gap-3 sm:gap-2 max-sm:gap-1 justify-end ">
+
+                <!-- Cart -->
+                <a class="flex  items-center gap-1 p-1 text-on-surface-variant transition-colors hover:text-gold-champagne" data-path="cart" href="#">
+                    <i class="fa fa-shopping-bag text-lg leading-none"></i>
+                    <span class="font-label-caps whitespace-nowrap text-label-caps tracking-widest uppercase">
+                        <span class="max-sm:hidden">Bag </span> (0)
+                    </span>
+                </a>
+
+
+
+                <!-- Wishlist -->
+                <a class="flex  items-center gap-1 p-1 text-on-surface-variant transition-colors hover:text-gold-champagne" data-path="wishlist" href="#">
+                    <i class="fa fa-heart text-lg leading-none"></i>
+                    <span class="font-label-caps whitespace-nowrap text-label-caps tracking-widest uppercase">
+                        <span class="max-sm:hidden">Wishlist</span> (0)
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button (click)="toggleSideNavbarState()" class="hidden max-lg:flex text-on-surface-variant transition-colors hover:text-gold-champagne font-label-caps whitespace-nowrap text-label-caps tracking-widest uppercase">
+                    <i class="fa fa-bars text-lg leading-none"></i>
+                </button>
+
+                @if(loginState()){
+
+                <!-- Account -->
+                <a (click)="toggleLoginState()" class=" group hidden lg:flex items-center gap-2 border border-border-hairline/5 rounded-xl py-1.5 px-4 text-on-surface-variant transition-colors hover:text-gold-champagne hover:border-gold-champagne" href="#">
+                    <div class=" group-hover:text-gold-champagne flex h-8 w-8 items-center justify-center rounded-full border border-border-hairline/80  bg-emerald-surface text-on-surface-variant transition-colors ">
+                        <i class="fa fa-user text-[17px]"></i>
+                    </div>
+                    <span class=" font-label-caps text-label-caps tracking-widest uppercase">
+                        Mostafa
+                    </span>
+                </a>
+                }
+                @else{
+
+                <!-- Authentication Buttons -->
+                <div class="hidden gap-5 lg:flex">
+                    <a (click)="toggleLoginState()" class="border whitespace-nowrap border-gold-antique/40 px-6 py-4 font-interface text-label-caps text-gold-shimmer uppercase transition-all duration-300 hover:border-gold-antique hover:bg-emerald-surface" href="#">
+                        Log In
+                    </a>
+
+                    <a (click)="toggleLoginState()" class="bg-gold-antique whitespace-nowrap px-6 py-4 font-interface text-label-caps text-surface-container-lowest uppercase shadow-lg transition-all duration-300 hover:bg-gold-shimmer hover:shadow-mint-luminous/10" href="#">
+                        Sign Up
+                    </a>
+                </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+
+</header>
+<!-- ========================================================================= -->
+<!-- 3. MOBILE OFF-CANVAS DRAWER                                               -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 bg-black/10 z-90 opacity-0 pointer-events-none  backdrop-blur-0 transition-opacity duration-300" [ngClass]="{'opacity-100 pointer-events-auto backdrop-blur-sm':sideNabarState(),'opacity-0 pointer-events-none backdrop-blur-0':!sideNabarState()}" id="drawerBackdrop"></div>
+<div class="  fixed inset-y-0 left-0 w-80 max-w-[85vw] h-full bg-surface-container-lowest border-r border-border-hairline/80 z-90 transform  3xl:hidden flex flex-col shadow-2xl transition-transform duration-300 ease-out" [ngClass]="{'translate-x-0':sideNabarState(), '-translate-x-full':!sideNabarState()}" id="mobileDrawer" role="dialog">
+    <!-- Brand Header -->
+    <div class="px-6 py-5  border-border-hairline flex items-center justify-between shrink-0 bg-surface-dim">
+        <a class="group flex  h-full items-center ">
+            <img alt="SHAZA Fragrances" class="  justify-center sm:h-13 max-sm:h-10  object-contain" src="./Shaza.png" />
+        </a>
+        <button (click)="sideNabarState.set(false)" aria-label="Close Navigation Drawer" class="p-2 flex items-center justify-center border-border-hairline text-outline hover:text-gold-antique rounded-full border hover:bg-surface-container focus:outline-none transition" id="closeDrawerBtn">
+            <span class="material-symbols-outlined text-[20px] leading-none">close</span>
+        </button>
+    </div>
+    <!-- Main Navigation (Scrollable flex-1) -->
+    <nav class="flex-1 overflow-y-auto px-4 py-5 space-y-1.5">
+        <a class="side-nav-item" href="#home">
+            Home
+        </a>
+        <a class="side-nav-item " href="#home">
+            About
+        </a>
+        <a class="side-nav-item " href="#home">
+            Shop
+        </a>
+        <a class="side-nav-item " href="#home">
+            Contact
+        </a>
+
+
+
+    </nav>
+    <!-- Bottom Actions -->
+    <div class="p-5 bg-surface-dim border-t border-border-hairline shrink-0 space-y-3">
+        <!-- Bag -->
+        <a class="group w-full flex items-center justify-between px-3.5 py-3 rounded bg-surface-container-low border border-on-surface-variant/30 hover:border-border-hairline text-on-surface" href="#cart">
+            <div class="  flex items-center gap-3 group-hover:text-gold-antique">
+                <i class="fa fa-shopping-bag text-lg leading-none"></i>
+                <span class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-cream-parchment group-hover:text-gold-antique font-medium">Bag</span>
+            </div>
+            <span class="size-4 flex items-center justify-center p-3  text-[10px] font-bold bg-on-surface-variant group-hover:bg-gold-antique text-surface-container-lowest rounded-full">3</span>
+        </a>
+
+        <!-- Wishlist -->
+        <a class="group w-full flex items-center justify-between px-3.5 py-3 rounded bg-surface-container-low border border-on-surface-variant/30 hover:border-border-hairline text-on-surface" href="#cart">
+            <div class="flex items-center gap-3 group-hover:text-gold-antique">
+                <i class="fa fa-heart text-lg leading-none"></i>
+                <span class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-cream-parchment group-hover:text-gold-antique font-medium">Wishlist</span>
+            </div>
+            <span class="size-4 flex items-center justify-center p-3  text-[10px] font-bold bg-on-surface-variant group-hover:bg-gold-antique text-surface-container-lowest rounded-full">3</span>
+        </a>
+
+        <!-- User Profile -->
+
+
+        <!-- User Account -->
+        @if (loginState()) {
+        <a href="#account" class="group relative flex w-full items-center gap-3.5 overflow-hidden border border-gold-antique/25 bg-emerald-surface px-4 py-3.5 transition-all duration-300 hover:border-gold-antique/60 hover:bg-surface-container">
+            <!-- Subtle Gold Accent -->
+            <span class="absolute inset-y-0 left-0 w-0.5 bg-gold-antique"></span>
+
+            <!-- Avatar -->
+            <div class="flex size-11 shrink-0 items-center justify-center rounded-full border border-gold-antique/50 bg-surface-container-lowest text-gold-antique transition-colors duration-300 group-hover:bg-gold-antique group-hover:text-surface-container-lowest">
+                <i class="fa fa-user text-base"></i>
+            </div>
+
+            <!-- User Information -->
+            <div class="min-w-0 flex-1">
+                <span class="mb-1 block text-[9px] font-medium uppercase tracking-[0.22em] text-gold-antique">
+                    Welcome Back
+                </span>
+
+                <span class="block truncate font-label-caps text-xs font-semibold uppercase tracking-[0.16em] text-cream-parchment transition-colors group-hover:text-gold-champagne">
+                    Mostafa
+                </span>
+
+
+            </div>
+
+        </a>
+        }
+        @else {
+        <!-- Guest Account -->
+        <div class="border border-border-hairline/70 bg-surface-container-low p-4">
+            <div class="mb-3 flex items-center gap-3">
+                <div class="flex size-10 shrink-0 items-center justify-center rounded-full border border-gold-antique/30 bg-emerald-surface text-gold-antique">
+                    <i class="fa fa-user text-base"></i>
+                </div>
+
+                <div class="min-w-0">
+                    <span class="block font-label-caps text-xs font-semibold uppercase tracking-[0.16em] text-cream-parchment">
+                        Welcome, Guest
+                    </span>
+
+                    <span class="mt-1 block text-[10px] text-on-surface-variant">
+                        Sign in to your account
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+                <a href="#login" class="flex items-center justify-center border border-border-hairline px-3 py-2.5 font-label-caps text-[10px] font-medium uppercase tracking-[0.16em] text-cream-parchment transition-colors hover:border-gold-antique hover:text-gold-antique">
+                    Sign In
+                </a>
+
+                <a href="#register" class="flex items-center justify-center bg-gold-antique px-3 py-2.5 font-label-caps text-[10px] font-semibold uppercase tracking-[0.16em] text-surface-container-lowest transition-colors hover:bg-gold-champagne">
+                    Register
+                </a>
+            </div>
+        </div>
+        }
+    </div>
+</div>

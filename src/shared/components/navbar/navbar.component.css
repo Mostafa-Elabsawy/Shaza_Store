@@ -1,0 +1,30 @@
+@reference "../../../styles.css";
+a.nav-item{
+  @apply  relative font-label-caps text-sm  text-label-caps uppercase text-on-surface-variant tracking-[0.2em] transition-colors;
+}
+
+a.nav-item::after {
+  @apply absolute bg-gold-champagne -bottom-2 left-1/2 h-0 w-0 transition-all duration-300 ease-in-out;
+  content: '';
+  height: 2px;
+}
+.nav-item:is(:hover, :active, :focus,.active){
+
+  @apply text-gold-champagne font-semibold;
+
+  &::after{@apply w-full left-0;}
+}
+a.side-nav-item{
+  @apply  px-4 py-4 block w-full font-label-caps text-sm  text-label-caps uppercase border-border-hairline cursor-pointer text-on-surface-variant tracking-[0.2em] transition-colors;
+  &:hover{
+    @apply bg-surface-container-low border;
+  }
+}
+a.side-nav-item:is(:hover, :active, :focus,.active){
+  @apply text-gold-champagne bg-surface-container-low border border-border-hairline font-semibold;
+}
+.active-blur-panel{
+  @apply opacity-20 blur-sm pointer-events-none;
+
+}
+
