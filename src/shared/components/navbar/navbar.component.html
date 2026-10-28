@@ -1,4 +1,4 @@
-<header class="sticky top-1 left-0 z-60 w-full bg-[#031410]/95 shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
+<header class="sticky top-1 left-0 z-60 w-full bg-surface-dim shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
 
 
 
@@ -82,7 +82,7 @@
 <!-- 3. MOBILE OFF-CANVAS DRAWER                                               -->
 <!-- ========================================================================= -->
 <div class="fixed inset-0 bg-black/10 z-90 opacity-0 pointer-events-none  backdrop-blur-0 transition-opacity duration-300" [ngClass]="{'opacity-100 pointer-events-auto backdrop-blur-sm':sideNabarState(),'opacity-0 pointer-events-none backdrop-blur-0':!sideNabarState()}" id="drawerBackdrop"></div>
-<div class="  fixed inset-y-0 left-0 w-80 max-w-[85vw] h-full bg-surface-container-lowest border-r border-border-hairline/80 z-90 transform  3xl:hidden flex flex-col shadow-2xl transition-transform duration-300 ease-out" [ngClass]="{'translate-x-0':sideNabarState(), '-translate-x-full':!sideNabarState()}" id="mobileDrawer" role="dialog">
+<div class=" overflow-y-auto  fixed inset-y-0 left-0 w-80 max-w-[85vw] h-full bg-surface-container-lowest border-r border-border-hairline/80 z-90 transform  3xl:hidden flex flex-col shadow-2xl transition-transform duration-300 ease-out" [ngClass]="{'translate-x-0':sideNabarState(), '-translate-x-full':!sideNabarState()}" id="mobileDrawer" role="dialog">
     <!-- Brand Header -->
     <div class="px-6 py-5  border-border-hairline flex items-center justify-between shrink-0 bg-surface-dim">
         <a class="group flex  h-full items-center ">
@@ -93,7 +93,7 @@
         </button>
     </div>
     <!-- Main Navigation (Scrollable flex-1) -->
-    <nav class="flex-1 overflow-y-auto px-4 py-5 space-y-1.5">
+    <nav class="  px-4 py-5 space-y-1.5">
         <a class="side-nav-item" href="#home">
             Home
         </a>
@@ -111,9 +111,9 @@
 
     </nav>
     <!-- Bottom Actions -->
-    <div class="p-5 bg-surface-dim border-t border-border-hairline shrink-0 space-y-3">
+    <div class="p-5  border-t border-border-hairline  space-y-3">
         <!-- Bag -->
-        <a class="group w-full flex items-center justify-between px-3.5 py-3 rounded bg-surface-container-low border border-on-surface-variant/30 hover:border-border-hairline text-on-surface" href="#cart">
+        <a class="group w-full flex items-center justify-between px-3.5 py-3 rounded bg-surface-dim border border-on-surface-variant/30 hover:border-border-hairline text-on-surface" href="#cart">
             <div class="  flex items-center gap-3 group-hover:text-gold-antique">
                 <i class="fa fa-shopping-bag text-lg leading-none"></i>
                 <span class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-cream-parchment group-hover:text-gold-antique font-medium">Bag</span>
@@ -122,7 +122,7 @@
         </a>
 
         <!-- Wishlist -->
-        <a class="group w-full flex items-center justify-between px-3.5 py-3 rounded bg-surface-container-low border border-on-surface-variant/30 hover:border-border-hairline text-on-surface" href="#cart">
+        <a class="group w-full flex items-center justify-between px-3.5 py-3 rounded bg-surface-dim border border-on-surface-variant/30 hover:border-border-hairline text-on-surface" href="#cart">
             <div class="flex items-center gap-3 group-hover:text-gold-antique">
                 <i class="fa fa-heart text-lg leading-none"></i>
                 <span class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-cream-parchment group-hover:text-gold-antique font-medium">Wishlist</span>
@@ -140,7 +140,7 @@
             <span class="absolute inset-y-0 left-0 w-0.5 bg-gold-antique"></span>
 
             <!-- Avatar -->
-            <div class="flex size-11 shrink-0 items-center justify-center rounded-full border border-gold-antique/50 bg-surface-container-lowest text-gold-antique transition-colors duration-300 group-hover:bg-gold-antique group-hover:text-surface-container-lowest">
+            <div class="flex size-11 shrink-0 items-center justify-center rounded-full border border-gold-antique/50 bg-surface-dim text-gold-antique transition-colors duration-300 group-hover:bg-gold-antique group-hover:text-surface-container-lowest">
                 <i class="fa fa-user text-base"></i>
             </div>
 
