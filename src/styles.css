@@ -213,18 +213,23 @@
 
   html {
     scroll-behavior: smooth;
-    background: var(--page-background);
+    /* background: var(--page-background); */
   }
 
   body {
     margin: 0;
-    background: var(--page-background);
+    /* background: var(--page-background); */
+    /* background-image: url('/bg.png'); */
+    /* background-size: cover;
+    background-repeat: repeat-x;
+    background-position: ; */
+
     color: var(--page-foreground);
     font-family: var(--font-interface);
     font-size: 1.0625rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    height: 200vh;
+    height: 100vh;
   }
 
   h1,
@@ -317,7 +322,7 @@
 
   .luxury-divider {
     border: 0;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 3px solid var(--border-subtle);
   }
 
   .gold-divider {
