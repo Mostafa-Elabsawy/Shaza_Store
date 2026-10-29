@@ -1,7 +1,4 @@
-<header class="sticky top-0.5 left-0 z-60 w-full bg-surface-dim shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
-
-
-
+<header class="fixed top-0.5 left-0 z-50 w-full bg-surface-dim shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
     <!-- Main Navigation -->
     <div class=" flex  h-20 w-full items-center justify-between overflow-hidden border-y border-gold-antique/50 md:px-6 px-3 ">
         <div class="max-w-7xl mx-auto flex h-20 w-full items-center justify-between     sm:px-6  ">
@@ -82,7 +79,7 @@
 <!-- 3. MOBILE OFF-CANVAS DRAWER                                               -->
 <!-- ========================================================================= -->
 <div class="fixed inset-0 bg-black/10 z-90 opacity-0 pointer-events-none  backdrop-blur-0 transition-opacity duration-300" [ngClass]="{'opacity-100 pointer-events-auto backdrop-blur-sm':sideNabarState(),'opacity-0 pointer-events-none backdrop-blur-0':!sideNabarState()}" id="drawerBackdrop"></div>
-<div class=" overflow-y-auto  fixed inset-y-0 left-0 w-80 max-w-[85vw] h-full bg-surface-container-lowest border-r border-border-hairline/80 z-90 transform  3xl:hidden flex flex-col shadow-2xl transition-transform duration-300 ease-out" [ngClass]="{'translate-x-0':sideNabarState(), '-translate-x-full':!sideNabarState()}" id="mobileDrawer" role="dialog">
+<div class=" overflow-y-auto  fixed inset-y-0 left-0 w-80 max-w-[85vw] h-screen bg-surface-container-lowest border-r border-gold-antique z-90 transform  3xl:hidden flex flex-col shadow-2xl transition-transform duration-300 ease-out" [ngClass]="{'translate-x-0':sideNabarState(), '-translate-x-full':!sideNabarState()}" id="mobileDrawer" role="dialog">
     <!-- Brand Header -->
     <div class="px-6 py-5  border-border-hairline flex items-center justify-between shrink-0 bg-surface-dim">
         <a class="group flex  h-full items-center ">
