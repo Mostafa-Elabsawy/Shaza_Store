@@ -1,104 +1,120 @@
-<section class="relative w-full -mt-20 overflow-hidden  bg-right bg-cover bg-no-repeat">
+<section class="relative -mt-18 w-full overflow-hidden  ">
 
     <!-- Background: real <img> (reserves space, can be prioritised) + legibility gradients -->
-    <div class="absolute inset-0 " aria-hidden="false">
+    <div class="absolute inset-0  overflow-hidden " aria-hidden="false">
         <!-- Mobile: < 640px -->
-        <img src="./backgrounds/mobile_center.jpg" alt="Perfume background for mobile" class="block w-full h-full object-cover object-center  opacity-20 animate-[fadeIn_1.2s_ease-out] sm:hidden" />
+        <img src="./backgrounds/mobile_center.jpg" alt="Perfume background for mobile" class="block w-full h-full object-cover object-center  fade-in-test sm:hidden" />
 
         <!-- Tablet: 640px–1023px -->
-        <img src="./backgrounds/tablet_center.jpg" alt="Perfume background for tablet" class="hidden sm:block lg:hidden w-full h-full object-cover object-center] opacity-20 animate-[fadeIn_1.2s_ease-out]" />
+        <img src="./backgrounds/tablet_center.jpg" alt="Perfume background for tablet" class="hidden sm:block lg:hidden w-full h-full object-cover object-center] opacity-40 animate-[fadeIn_4s_ease-out]" />
 
         <!-- Desktop: >= 1024px -->
-        <!-- <img src="./backgrounds/desktop_right.jpg" alt="Perfume background for desktop" class="hidden lg:block w-full h-full object-cover object-[70%_center] opacity-40 animate-[fadeIn_1.2s_ease-out]" /> <img src='./image.png' alt="bg" class="w-full h-full object-cover object-[90%_center] opacity-30 animate-[fadeIn_1.2s_ease-out]"> -->
-        <!-- <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-surface/90"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 lg:via-surface/40 to-transparent"></div> -->
+        <img src="./backgrounds/desktop_right.jpg" alt="Perfume background for desktop" class="hidden lg:block w-full h-full object-cover object-[70%_100%]  fade-in-test" />
+        <!-- <img src='./image.png' alt="bg" class="w-full h-full object-cover object-[90%_center] opacity-30 animate-[fadeIn_1.2s_ease-out]"> -->
+        <!-- <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div> -->
+        <!-- <div class="absolute inset-0 bg-gradient-to-r from-surface/80 via-surface/30  to-transparent"></div> -->
     </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-margin lg:px-margin-desktop pt-32 lg:pt-44 pb-space-xl lg:pb-space-xxl flex flex-col gap-space-xl min-h-[100svh] lg:min-h-[900px]">
-
-        <!-- Brand line -->
-        <p class="flex items-center gap-space-sm text-gold-champagne font-label-caps text-label-caps uppercase tracking-[0.2em] sm:tracking-[0.3em]">
-            <span class="w-8 h-px bg-gold-antique shrink-0" aria-hidden="true"></span>
-            <span>Maison Paris · Place Vendôme</span>
-        </p>
-
-        <!-- Main message -->
-        <div class="max-w-3xl my-auto">
-            <p class="font-label-caps text-label-caps uppercase tracking-[0.2em] sm:tracking-[0.3em] text-secondary-fixed-dim mb-space-sm">
-                Haute Parfumerie · Extraits de Parfum
+    <div class="relative  max-w-7xl pt-40  mx-auto px-4  flex flex-col gap-14 min-h-svh lg:min-h-screen">
+        <!-- Main Message -->
+        <div class="lg:max-w-3xl w-full max-lg:mx-auto max-lg:text-center flex flex-col max-lg:items-center ">
+            <!-- Category Label -->
+            <p class="font-interface font-semibold text-xs tracking-[2px] uppercase    text-secondary-fixed-dim mb-space-sm flex items-baseline gap-1">
+                <span class="text-base" aria-hidden="true">✦</span>An Expression of Luxury A SCENT OF YOUR OWN<span class="text-base" aria-hidden="true">✦</span> 
             </p>
-            <h1 id="hero-title" class="font-display-hero text-display-hero text-cream-parchment font-normal tracking-tight leading-[1.05] text-balance mb-space-lg">
-                L’Art de la Haute Parfumerie
+            <!-- Hero Heading -->
+            <h1 id="hero-title" class="font-display text-nowrap text-7xl max-sm:text-4xl    text-cream-parchment font-normal  text-balance mb-space-lg">
+                <span class="align-middle text-[#DAB77D] max-sm:text-[2.75rem]">SHAZA Fragrances</span> 
+                <br />
+                The Art of Scent
             </h1>
-            <p class="font-body-lead text-body-lead text-on-surface-variant max-w-xl leading-relaxed mb-space-xl">
-                Rare botanical extractions, wild resinous timbers, and hand-cut
-                architectural crystal flacons, macerated slowly over solitary
-                seasons to attain unfiltered, luminous potency.
+
+            <!-- Hero Description -->
+            <p class="font-display text-justify text-body-lead leading-7 text-xl tracking-normal text-on-surface-variant max-w-xl  mb-space-xl">
+                Discover captivating fragrances chosen for those who appreciate
+                elegance, individuality, and the art of making a lasting impression.
+                Find the scent that speaks to you, from unforgettable evenings to
+                the moments that make everyday life extraordinary.
             </p>
 
+            <!-- Call-to-Action Buttons -->
             <div class="flex flex-col sm:flex-row sm:items-center gap-space-sm sm:gap-space-md">
-                <a href="#selection-privee" class="inline-flex items-center justify-center min-h-12 px-space-xl py-4 cursor-pointer
-                          bg-gold-antique text-surface-container-lowest font-label-caps text-label-caps uppercase tracking-[0.2em]
-                          hover:bg-gold-shimmer active:brightness-95 shadow-lg
-                          transition-colors duration-200 motion-reduce:transition-none
-                          focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
-                    Discover the Flacons
+                <!-- Primary CTA -->
+                <a href="/shop" class="inline-flex items-center justify-center min-h-12 px-space-xl py-4 cursor-pointer bg-gold-antique text-surface-container-lowest font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-gold-shimmer active:brightness-95 shadow-lg transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
+                    Explore the Collection
                 </a>
-                <a href="#philosophy" class="inline-flex items-center justify-center gap-space-xs min-h-12 px-space-lg py-4 cursor-pointer
-                          border border-gold-antique/60 text-gold-shimmer font-label-caps text-label-caps uppercase tracking-[0.2em]
-                          hover:bg-emerald-surface hover:border-gold-antique active:brightness-95
-                          transition-colors duration-200 motion-reduce:transition-none
-                          focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
-                    <span>Our Atelier Heritage</span>
-                    <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+
+                <!-- Secondary CTA -->
+                <a href="#philosophy" class="inline-flex items-center justify-center gap-space-xs min-h-12 px-space-lg py-4 cursor-pointer border border-gold-antique/60 text-gold-shimmer font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-emerald-surface hover:border-gold-antique active:brightness-95 transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
+                    <span>Discover Your Signature</span>
+
+                    <span class="material-symbols-outlined text-base" aria-hidden="true">
+                        arrow_forward
+                    </span>
                 </a>
             </div>
         </div>
 
-        <!-- Highlights -->
-        <dl class="grid grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-space-lg pt-space-lg border-t border-border-hairline">
+        <!-- Brand Highlights -->
+        <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+           gap-x-gutter gap-y-space-lg
+           pt-space-lg border-t border-border-hairline">
+            <!-- Highlight 1 -->
             <div class="flex flex-col gap-1">
-                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">Extrait
-                    Pur</dt>
-                <dd class="font-headline-sm text-headline-sm text-cream-parchment">32%
-                    — 38%</dd>
-                <dd class="font-body-muted text-body-muted text-on-surface-variant">Exceptional
-                    maceration density</dd>
+                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">
+                    The Collection
+                </dt>
+                <dd class="font-headline-sm text-headline-sm text-cream-parchment">
+                    A Scent for Every Mood
+                </dd>
+
             </div>
+
+            <!-- Highlight 2 -->
             <div class="flex flex-col gap-1">
-                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">Réserve
-                    2025</dt>
-                <dd class="font-headline-sm text-headline-sm text-cream-parchment">1,200
-                    Flacons</dd>
-                <dd class="font-body-muted text-body-muted text-on-surface-variant">Numbered
-                    harvest distillation</dd>
+                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">
+                    Your Signature
+                </dt>
+                <dd class="font-headline-sm text-headline-sm text-cream-parchment">
+                    Find Your Scent
+                </dd>
+
             </div>
+
+            <!-- Highlight 3 -->
             <div class="flex flex-col gap-1">
-                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">Crystal
-                    Atelier</dt>
-                <dd class="font-headline-sm text-headline-sm text-cream-parchment">Hand-Beveled</dd>
-                <dd class="font-body-muted text-body-muted text-on-surface-variant">Polished
-                    emerald flint glass</dd>
+                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">
+                    Every Occasion
+                </dt>
+                <dd class="font-headline-sm text-headline-sm text-cream-parchment">
+                    Moments Worth Remembering
+                </dd>
+
             </div>
+
+            <!-- Highlight 4 -->
             <div class="flex flex-col gap-1">
-                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">Shipping
-                    Privilège</dt>
-                <dd class="font-headline-sm text-headline-sm text-cream-parchment">Global
-                    Courier</dd>
-                <dd class="font-body-muted text-body-muted text-on-surface-variant">Bespoke
-                    temperature control</dd>
+                <dt class="font-label-caps text-label-caps text-gold-champagne tracking-[0.15em] uppercase">
+                    The SHAZA Experience
+                </dt>
+                <dd class="font-headline-sm text-headline-sm text-cream-parchment">
+                    Luxury in Every Detail
+                </dd>
             </div>
         </dl>
     </div>
 </section>
 
 <style>
+    .fade-in-test {
+  animation: fadeIn 2s ease-out both;
+}
     @keyframes fadeIn {
         from {
             opacity: 0;
         }
 
         to {
-            opacity: .45;
+            opacity: 0.2;
         }
     }
 </style>
