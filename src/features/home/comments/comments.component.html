@@ -1,0 +1,62 @@
+<!-- SECTION: TESTIMONIALS / THE SHAZA EXPERIENCE -->
+<section class="w-full py-space-xxl bg-surface-container-low relative">
+    <div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-space-xxl">
+            <span class="font-label-caps text-xs tracking-[0.25em] text-on-surface-variant uppercase block mb-space-xs">
+                THE SHAZA EXPERIENCE
+            </span>
+
+            <h2 class="font-headline-lg text-headline-lg text-cream-parchment mb-space-sm font-normal">
+                Words That Leave an Impression.
+            </h2>
+            <p class="font-body-muted text-body-muted text-on-surface-variant">
+                Unfiltered impressions from discerning patrons who wear SHAZA extraits across the world's cultural capitals.
+            </p>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border-hairline/40 border-y border-border-hairline/40">
+
+            @for (testimonial of testimonials; track testimonial.id) {
+                <div class="p-space-lg lg:p-space-xl flex flex-col justify-between space-y-space-md bg-transparent">
+
+                    <div>
+                        <!-- Avatar & Name -->
+                        <div class="mb-5 flex flex-col items-center gap-4">
+                            <div class="relative w-16 h-16 rounded-full overflow-hidden border border-gold-antique p-[2px] bg-[#01110d] shadow-sm">
+                                <img
+                                    [src]="testimonial.image"
+                                    [alt]="testimonial.name"
+                                    class="w-full h-full object-cover rounded-full"
+                                >
+                            </div>
+
+                            <span class="text-on-surface text-lg uppercase font-display tracking-[0.1rem]">
+                                {{ testimonial.name }}
+                            </span>
+                        </div>
+
+                        <!-- Star Rating -->
+                        <div
+                            class="flex justify-center items-center gap-1 text-gold-antique mb-space-md text-sm"
+                            [attr.aria-label]="testimonial.rating + ' out of 5 stars'"
+                        >
+                            @for (star of [].constructor(testimonial.rating); track $index) {
+                                <span>★</span>
+                            }
+                        </div>
+
+                        <!-- Review -->
+                        <p class="font-body-lead text-center text-cream-parchment italic leading-relaxed mb-space-lg">
+                            “{{ testimonial.review }}”
+                        </p>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

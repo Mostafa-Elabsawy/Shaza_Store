@@ -13,7 +13,7 @@
   --color-mint-luminous: #38b991;
 
   --color-gold-antique: #d4af37;
-  --color-gold-champagne: #c5a880;
+  --color-gold-champagne: #DAB77D;
   --color-gold-shimmer: #e8d8b9;
   --color-cream-parchment: #f7f3eb;
 
@@ -208,7 +208,7 @@
   *,
   *::before,
   *::after {
-    box-sizing: border-box;
+    box-sizing:border-box;
   }
 
   html {

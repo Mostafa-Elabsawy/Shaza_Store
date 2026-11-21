@@ -1,0 +1,69 @@
+
+@reference "tailwindcss";
+@reference "../../../styles.css";
+
+/* Repeated footer elements */
+
+.footer-tagline {
+  @apply uppercase text-label-caps
+         text-gold-antique font-medium mb-3;
+}
+
+.footer-heading {
+  @apply font-headline-sm text-base text-cream-parchment
+         tracking-wide mb-4;
+}
+
+/* Navigation links */
+
+.footer-nav-link {
+  @apply block text-xs text-on-primary-container
+         transition-colors duration-200
+         hover:text-gold-antique;
+}
+
+/* Social buttons */
+
+.footer-social {
+  @apply flex h-10 w-10 items-center justify-center rounded-sm
+         border border-border-hairline bg-emerald-surface
+         text-on-surface-variant
+         transition-all duration-300 ease-out
+         hover:-translate-y-0.5 hover:border-gold-antique
+         hover:bg-gold-antique hover:text-emerald-abyss
+         hover:shadow-[0_6px_18px_-6px_rgba(212,175,55,0.55)]
+         focus-visible:outline-none focus-visible:ring-1
+         focus-visible:ring-gold-champagne
+         focus-visible:ring-offset-2
+         focus-visible:ring-offset-emerald-abyss;
+}
+
+.footer-social i {
+  @apply text-base transition-transform duration-300;
+}
+
+.footer-social:hover i {
+  @apply scale-110;
+}
+
+/* Newsletter */
+
+.footer-subscribe {
+  @apply shrink-0 bg-gold-antique text-emerald-abyss
+         hover:bg-gold-champagne
+         text-[10px] tracking-[0.2em] uppercase font-semibold
+         px-4 py-2.5 rounded-sm transition-colors duration-200;
+}
+
+/* Legal links */
+
+.footer-legal-link {
+  @apply transition-colors duration-200 hover:text-gold-antique;
+}
+
+/* Payment badges */
+
+.footer-payment {
+  @apply border border-border-hairline bg-emerald-abyss
+         text-on-primary-container px-2 py-0.5 rounded-sm;
+}

@@ -1,0 +1,89 @@
+<section class="w-full py-space-xxl bg-surface relative" id="selection-privee">
+    <div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+        <!-- Section Header -->
+        <div class=" bg-surface flex flex-col md:flex-row md:items-end justify-between mb-space-xl  pb-4">
+            <div>
+                <div class="flex items-center gap-space-xs mb-space-xs">
+                    <span class="text-gold-antique text-xs">✦</span>
+                    <span class="font-label-caps text-label-caps text-gold-champagne uppercase tracking-[0.25em]">COLLECTION EXTRAORDINAIRE</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-lg text-cream-parchment">Signature Scents </h2>
+            </div>
+
+        </div>
+
+        <!-- Fragrance Cards Grid -->
+        <!-- Carousel track (replaces the grid div) -->
+        <div class="relative">
+
+            <button aria-label="Previous fragrance" (click)="scroll(-1)" [disabled]="!canPrev()" class=" absolute z-3  left-0 top-1/2 w-10 h-10 border rounded-full border-gold-antique/20 flex items-center justify-center text-gold-champagne hover:border-gold-antique hover:text-gold-shimmer transition-colors disabled:opacity-30 disabled:pointer-events-none">
+                <i class="fas fa-angle-left"></i>
+            </button>
+            <button aria-label="Next fragrance" (click)="scroll(1)" [disabled]="!canNext()" class="absolute z-3 right-0 top-1/2 w-10 h-10 border border-gold-antique/20 rounded-full flex items-center justify-center text-gold-champagne hover:border-gold-antique hover:text-gold-shimmer transition-colors disabled:opacity-30 disabled:pointer-events-none">
+                <i class="fas fa-angle-right"></i>
+            </button>
+            <div #track (scroll)="updateButtons()" class="flex  overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative">
+
+                @for (product of products; track product.id) {
+                <!-- Slide wrapper: sets the width and spacing -->
+                <div class="snap-start shrink-0 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 px-2 flex">
+
+                    <article class="group w-full bg-surface-container border-0 border-border-hairline hover:border-gold-antique/60 transition-all duration-500 flex flex-col justify-between hover:shadow-[0_12px_40px_rgba(10,45,36,0.6)]">
+
+                        <!-- Product Image -->
+                        <div class="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden flex items-center justify-center p-6">
+
+                            <span class="absolute top-4 left-4 font-label-caps text-label-caps text-gold-champagne tracking-widest uppercase z-2">
+                                {{ product.number }}
+                            </span>
+
+                            <span class="absolute top-4 right-4 bg-emerald-elevated/80 border border-border-hairline px-2 py-0.5 font-label-caps text-[0.6rem] text-gold-shimmer tracking-wider z-2">
+                                {{ product.type }}
+                            </span>
+
+                            <img [src]="product.image" [alt]="product.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
+
+                            <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent z-2 opacity-80"></div>
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="p-space-md flex flex-col flex-1 justify-between">
+
+                            <div>
+                                <div class="flex justify-between items-baseline mb-space-xs">
+                                    <span class="font-label-caps text-label-caps tracking-[0.2em] text-gold-champagne uppercase">
+                                        {{ product.category }}
+                                    </span>
+
+                                    <span class="font-label-price text-label-price text-gold-shimmer">
+                                        {{ product.price }}
+                                    </span>
+                                </div>
+
+                                <h3 class="font-headline-sm text-headline-sm text-cream-parchment group-hover:text-gold-champagne transition-colors mb-space-xs">
+                                    {{ product.name }}
+                                </h3>
+
+                                <p class="font-body-muted text-body-muted text-on-surface-variant mb-space-md line-clamp-2">
+                                    {{ product.description }}
+                                </p>
+                            </div>
+
+                            <!-- Acquire Button -->
+                            <button class="mt-space-md w-full py-3 bg-surface-container-high hover:bg-gold-antique text-cream-parchment hover:text-surface-container-lowest border border-border-hairline hover:border-gold-antique font-label-caps text-label-caps uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-space-xs">
+
+                                <i class="fa fa-shopping-bag text-sm"></i>
+                                <span>Purchase Now</span>
+
+                            </button>
+
+                        </div>
+                    </article>
+
+                </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,18 +1,18 @@
-<section class="relative    px-2 py-10 pt-40 w-full overflow-hidden  ">
+<section class="relative max-sm:mt-20 max-sm:pt-30  px-2 py-10 pt-40 w-full overflow-hidden  ">
 
     <!-- Background: real <img> (reserves space, can be prioritised) + legibility gradients -->
     <div class="absolute inset-0   overflow-hidden " aria-hidden="false">
         <!-- Mobile: < 640px -->
-        <img src="./backgrounds/mobile_center.jpg" alt="Perfume background for mobile" class="block w-full h-full object-cover object-center fade-in-test sm:hidden" />
+        <img src="./backgrounds/mobile_center.jpg" alt="Perfume background for mobile" loading="eager" class="block w-full h-full object-cover object-center fade-in-test sm:hidden" />
 
         <!-- Tablet: 640px–1023px -->
-        <img src="./backgrounds/tablet_center.jpg" alt="Perfume background for tablet" class="hidden sm:block lg:hidden w-full h-full object-cover object-center fade-in-test" />
+        <img src="./backgrounds/tablet_center.jpg" loading="eager" alt="Perfume background for tablet" class="hidden sm:block lg:hidden w-full h-full object-cover object-center fade-in-test" />
 
         <!-- Desktop: >= 1024px -->
-        <img src="./backgrounds/desktop_right.jpg" alt="Perfume background for desktop" class="hidden lg:block w-full h-full object-cover object-[70%_20%]  fade-in-test" />
+        <img src="./backgrounds/desktop_right.jpg" loading="eager" alt="Perfume background for desktop" class="hidden lg:block w-full h-full object-cover object-[70%_20%]  fade-in-test" />
         <!-- <img src='./image.png' alt="bg" class="w-full h-full object-cover object-[90%_center] opacity-30 animate-[fadeIn_1.2s_ease-out]"> -->
         <!-- <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div> -->
-        <div class="absolute inset-0 bg-linear-to-r from-surface/60 via-surface/20   to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-r from-surface via-surface/20   to-transparent"></div>
         <div class="absolute inset-0 bg-linear-to-l from-white/10 via-transparent to-transparent"></div>
         <!-- <div class="absolute inset-0 bg-linear-to-b from-surface/60 max-md:via-surface/40 via-transparent to-transparent"></div> -->
     </div>
@@ -25,7 +25,7 @@
             </p>
             <!-- Hero Heading -->
             <h1 id="hero-title" class="font-display text-nowrap text-7xl max-sm:text-4xl    text-cream-parchment font-normal  text-balance mb-space-lg">
-                <span class=" text-[#DAB77D] max-sm:text-[2.75rem] text-shadow-sm text-shadow-surface">SHAZA Fragrances</span>
+                <span class=" text-gold-champagne max-sm:text-[2.75rem] text-shadow-sm text-shadow-surface">SHAZA Fragrances</span>
                 <br />
                 The Art of Scent.
             </h1>
@@ -45,17 +45,13 @@
             <!-- Call-to-Action Buttons -->
             <div class="flex flex-col sm:flex-row sm:items-center gap-space-sm sm:gap-space-md">
                 <!-- Primary CTA -->
-                <a href="/shop" class="inline-flex items-center justify-center min-h-12 px-space-xl py-4 cursor-pointer bg-gold-antique text-surface-container-lowest font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-gold-shimmer active:brightness-95 shadow-lg transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
+                <a href="/shop" class="inline-flex items-center justify-center h-12 px-space-xl py-4 cursor-pointer bg-gold-antique text-surface-container-lowest font-label-caps text-label-caps uppercase tracking-[0.1rem] hover:bg-gold-shimmer active:brightness-95 shadow-lg transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
                     Explore the Collection
                 </a>
 
                 <!-- Secondary CTA -->
-                <a href="#philosophy" class="inline-flex items-center justify-center gap-space-xs min-h-12 px-space-lg py-4 cursor-pointer border border-gold-antique/60 text-gold-shimmer font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-emerald-surface hover:border-gold-antique active:brightness-95 transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
+                <a href="#philosophy" class="inline-flex items-center justify-center gap-space-xs h-12 px-space-lg py-4 cursor-pointer border border-gold-antique/60 text-gold-shimmer font-label-caps text-label-caps uppercase tracking-[0.1rem] hover:bg-emerald-surface hover:border-gold-antique active:brightness-95 transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-shimmer">
                     <span>Discover Your Signature</span>
-
-                    <span class="material-symbols-outlined text-base" aria-hidden="true">
-                        arrow_forward
-                    </span>
                 </a>
             </div>
         </div>
