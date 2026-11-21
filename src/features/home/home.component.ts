@@ -7,7 +7,7 @@ import { CommentsComponent } from './comments/comments.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent,CollectionComponent,BestsellersComponent,TrashComponent,CommentsComponent],
+  imports: [HeroComponent,CollectionComponent,BestsellersComponent,CommentsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
