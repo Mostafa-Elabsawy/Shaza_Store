@@ -1,0 +1,75 @@
+<article
+  class="group flex flex-col justify-between border border-border-hairline bg-emerald-surface shadow-[0_4px_20px_rgba(1,17,13,0.5)] transition-all duration-300 hover:border-gold-antique/60 hover:shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
+
+  <div class="relative aspect-4/5 w-full overflow-hidden bg-surface-container-lowest">
+
+    <img
+      [src]="product2().image"
+      [alt]="product2().alt"
+      loading="lazy"
+      class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+
+    @if (product2().badge === 'Bestseller') {
+      <div class="absolute left-2 top-2 border border-border-hairline bg-emerald-surface/90 px-space-sm py-1 font-label-caps text-label-caps uppercase tracking-widest text-gold-shimmer backdrop-blur-sm lg:left-3 lg:top-3">
+        Bestseller
+      </div>
+    } @else if (product2().badge === 'New Harvest') {
+      <div class="absolute left-2 top-2 bg-secondary-fixed px-space-sm py-1 font-label-caps text-label-caps uppercase tracking-widest text-on-secondary-fixed lg:left-3 lg:top-3">
+        New Harvest
+      </div>
+    }
+
+    <button
+      type="button"
+      (click)="quickAdd.emit(product2().name)"
+      class="absolute inset-x-0 bottom-0 translate-y-full border-t border-border-hairline bg-emerald-surface/95 py-space-sm text-center font-label-caps text-label-caps uppercase tracking-widest text-gold-shimmer backdrop-blur-md transition-transform duration-300 hover:bg-gold-antique hover:text-surface-container-lowest group-hover:translate-y-0 max-lg:translate-y-0">
+
+      <span class="max-sm:hidden">Quick Acquisition • </span>
+      <span class="sm:hidden">Add • </span>
+      ${{ product2().price }}
+    </button>
+
+  </div>
+
+  <div class="flex flex-1 flex-col justify-between bg-gradient-to-b from-emerald-surface to-surface-dim p-space-sm lg:p-space-md">
+
+    <div>
+      <span class="mb-1 block font-label-caps text-label-caps uppercase tracking-widest text-gold-champagne">
+        {{ product2().concentration }} • {{ product2().size }}ml
+      </span>
+
+      <h2 class="break-words font-headline-sm text-headline-sm text-cream-parchment transition-colors group-hover:text-gold-shimmer">
+        <a [routerLink]="['/shop', product2().id]" class="uppercase">
+          {{ product2().name }}
+        </a>
+      </h2>
+
+      <span class="mt-1 block font-label-price text-label-price font-semibold text-gold-antique">
+        ${{ product2().price }}
+      </span>
+
+      <p
+        class="mt-space-xs line-clamp-2 font-body-muted text-body-muted text-on-surface-variant"
+        [class.max-lg:hidden]="compact()">
+        {{ product2().note }}
+      </p>
+    </div>
+
+    <div class="mt-space-sm flex items-center justify-between border-t border-border-hairline/60 pt-space-xs lg:mt-space-md">
+
+      <span
+        class="font-label-caps text-label-caps uppercase tracking-wider text-outline"
+        [class.max-lg:hidden]="compact()">
+        {{ product2().footer }}
+      </span>
+
+      <a
+        [routerLink]="['/shop', product2().id]"
+        class="ml-auto flex items-center gap-1 font-label-caps text-label-caps uppercase tracking-widest text-gold-champagne transition-colors hover:text-gold-shimmer">
+        Discover
+        <i class="fa fa-arrow-right text-[11px]"></i>
+      </a>
+
+    </div>
+  </div>
+</article>
