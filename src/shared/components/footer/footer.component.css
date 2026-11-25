@@ -10,7 +10,7 @@
 
 .footer-heading {
   @apply font-headline-sm text-base text-cream-parchment
-         tracking-wide mb-4;
+         tracking-wide mb-2;
 }
 
 /* Navigation links */

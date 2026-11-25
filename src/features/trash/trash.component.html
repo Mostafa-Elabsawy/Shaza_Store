@@ -1,13 +1,8 @@
 <section class="pb-40 space-y-10">
 
-    <div class="grid grid-cols-4 gap-4 px-20">
-        @for (item of Products2; track $index) {
-            <app-product-card2 [product2]="item"></app-product-card2>
-        }
-    </div>
-    <div class="grid grid-cols-4 gap-4 px-20">
+    <div class="grid grid-cols-2  lg:grid-cols-4 gap-4 px-4 lg:px-20">
         @for (item of Products; track $index) {
-            <app-product-card [product]="item"></app-product-card>
+            <app-product-card [product]="item" class="border-0 border-red-500"></app-product-card>
         }
     </div>
 </section>

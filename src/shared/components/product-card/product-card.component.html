@@ -1,50 +1,64 @@
-<article class="group w-full bg-surface-container border-0 border-border-hairline hover:border-gold-antique/60 transition-all duration-500 flex flex-col justify-between hover:shadow-[0_12px_40px_rgba(10,45,36,0.6)]">
-
+<!-- Product Card -->
+<article class="group flex h-full flex-col justify-between border border-border-hairline bg-emerald-surface shadow-[0_4px_20px_rgba(1,17,13,0.5)] transition-all duration-300 hover:border-gold-antique/60 hover:shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
     <!-- Product Image -->
-    <div class="relative w-full aspect-3/4 bg-surface-container-lowest overflow-hidden flex items-center justify-center p-6">
+    <div class="relative aspect-4/5 w-full overflow-hidden bg-surface-container-lowest">
+        <!-- Product Image -->
+        <img [src]="product().image" [alt]="product().alt" loading="lazy" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
 
-        <span class="absolute top-4 left-4 font-label-caps text-label-caps text-gold-champagne tracking-widest uppercase z-2">
-            {{ product().number }}
-        </span>
+        <!-- Wishlist Toggle -->
+        <button type="button" (click)="toggleWishlist()" [attr.aria-pressed]="wishlisted()" [attr.aria-label]="'Toggle wishlist for ' + product().name" class="absolute right-2 top-2 z-2 grid size-9 place-items-center rounded-full border border-border-hairline bg-emerald-elevated  backdrop-blur-sm transition-colors hover:border-gold-antique lg:right-3 lg:top-3">
+            <i class="fa fa-heart text-base leading-none" [class.text-gold-antique]="wishlisted()" [class.text-cream-parchment]="!wishlisted()"></i>
+        </button>
 
-        <span class="absolute top-4 right-4 bg-emerald-elevated/80 border border-border-hairline px-2 py-0.5 font-label-caps text-[0.6rem] text-gold-shimmer tracking-wider z-2">
-            {{ product().type }}
-        </span>
+        <!-- Product Badge -->
+        @if (product().badge === 'Bestseller') {
+        <div class="absolute left-2 top-2 border border-border-hairline bg-emerald-surface/90 px-space-sm py-1 font-label-caps text-label-caps uppercase tracking-widest text-gold-shimmer backdrop-blur-sm lg:left-3 lg:top-3">
+            Bestseller
+        </div>
+        } @else if (product().badge === 'New Harvest') {
+        <div class="absolute left-2 top-2 bg-secondary-fixed px-space-sm py-1 font-label-caps text-label-caps uppercase tracking-widest text-on-secondary-fixed lg:left-3 lg:top-3">
+            New Harvest
+        </div>
+        }
 
-        <img [src]="product().image" [alt]="product().name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
-
-        <div class="absolute inset-0 bg-linear-to-t from-surface-container via-transparent to-transparent z-2 opacity-80"></div>
+        <!-- Quick Add Button -->
+        <button type="button" (click)="quickAdd.emit(product().name)" class="max-sm:hidden absolute inset-x-0 bottom-0 translate-y-full border-t border-border-hairline bg-emerald-surface/95 py-space-sm text-center font-label-caps text-label-caps uppercase tracking-widest text-gold-shimmer backdrop-blur-md transition-transform duration-300 hover:bg-gold-antique hover:text-surface-container-lowest group-hover:translate-y-0 max-lg:translate-y-0">
+            <span class="max-sm:hidden">Quick Acquisition • </span>
+            <span class="sm:hidden">Add • </span>
+            ${{ product().price }}
+        </button>
     </div>
 
     <!-- Product Details -->
-    <div class="p-space-md flex flex-col flex-1 justify-between">
-
+    <div class="flex flex-1 flex-col justify-between bg-linear-to-b from-emerald-surface to-surface-dim p-space-sm lg:p-space-md">
         <div>
-            <div class="flex justify-between items-baseline mb-space-xs">
-                <span class="font-label-caps text-label-caps tracking-[0.2em] text-gold-champagne uppercase">
-                    {{ product().category }}
-                </span>
+            <!-- Product Concentration & Size -->
+            <span class="block font-label-caps text-xs font-medium uppercase tracking-widest text-gold-champagne">
+                <span [class]="compact() == true ? 'hidden' : 'inline'">Concentration • </span>{{ product().size }}ml
+            </span>
 
-                <span class="font-label-price text-label-price text-gold-shimmer">
-                    {{ product().price }}
-                </span>
-            </div>
+            <!-- Product Name -->
+            <h2 class="truncate font-headline-sm text-[clamp(1.35rem,2vw,2rem)] font-medium text-cream-parchment transition-colors group-hover:text-gold-shimmer">
+                <a [routerLink]="['/shop', product().id]" class="capitalize">
+                    {{ product().name }}
+                </a>
+            </h2>
 
-            <h3 class="font-headline-sm text-headline-sm text-cream-parchment group-hover:text-gold-champagne transition-colors mb-space-xs">
-                {{ product().name }}
-            </h3>
+            <!-- Product Price -->
+            <span class="block font-label-price text-[clamp(1rem,1.9vw,1.5rem)] font-medium text-gold-antique">
+                {{ product().price }} <span class="text-gold-antique text-xs font-normal">EGP</span>
+            </span>
 
-            <p class="font-body-muted text-body-muted text-on-surface-variant mb-space-md line-clamp-2">
-                {{ product().description }}
+            <!-- Product Description -->
+            <p class="mt-space-xs line-clamp-2 font-body-muted text-body-muted text-on-surface-variant" [class.hidden]="compact()">
+                {{ product().note }}
             </p>
         </div>
 
-        <!-- Acquire Button -->
-        <button class="mt-space-md w-full py-3 bg-surface-container-high hover:bg-gold-antique text-cream-parchment hover:text-surface-container-lowest border border-border-hairline hover:border-gold-antique font-label-caps text-label-caps uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-space-xs">
-
+        <!-- Purchase Button -->
+        <button type="button" class="mt-space-sm lg:mt-space-md w-full py-3 bg-surface-container-high hover:bg-gold-antique text-cream-parchment hover:text-surface-container-lowest border border-border-hairline hover:border-gold-antique font-label-caps text-label-caps uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-space-xs">
             <i class="fa fa-shopping-bag text-sm"></i>
-            <span>Purchase Now</span>
-
+            <span>Purchase</span>
         </button>
     </div>
 </article>

@@ -176,6 +176,8 @@
   --spacing-margin: 1.5rem;
   --spacing-margin-tablet: 3rem;
   --spacing-margin-desktop: 5rem;
+  /* font weight*/
+  --font-weight-medium: 500;
 }
 
 /* =========================================================

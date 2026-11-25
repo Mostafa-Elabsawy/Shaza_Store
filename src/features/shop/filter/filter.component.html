@@ -1,0 +1,103 @@
+@if (variant() === 'sidebar') {
+<!-- Desktop sidebar -->
+<div class="sticky top-28 overflow-y-auto scrollbar-thin border rounded-lg border-border-hairline bg-surface-container-low p-space-md shadow-[0_4px_20px_rgba(1,17,13,0.5)]">
+    <div class="mb-space-md flex items-center justify-between border-b border-border-hairline/60 pb-space-sm">
+        <h2 class="font-headline-sm text-headline-sm text-cream-parchment">
+            Preferences
+            <i class="fas fa-filter font-semibold text-sm text-gold-champagne"></i>
+
+        </h2>
+        <button type="button" (click)="resetFilters()" [disabled]="!activeCount()" class="font-label-caps text-label-caps uppercase tracking-widest text-gold-champagne/80 underline underline-offset-4 transition-colors hover:text-gold-antique disabled:cursor-not-allowed disabled:no-underline disabled:opacity-40">
+            Clear All
+        </button>
+    </div>
+    <ng-container [ngTemplateOutlet]="fields" />
+</div>
+} @else {
+<!-- Mobile bottom sheet -->
+<div class="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-border-hairline"></div>
+
+<div class="flex shrink-0 items-center justify-between border-b border-border-hairline px-5 py-3">
+    <h2 class="font-headline-sm text-headline-sm text-cream-parchment">
+        Refine Collection
+        @if (activeCount()) {
+        <span class="ml-1 font-label-caps text-label-caps text-gold-antique">({{ activeCount() }})</span>
+        }
+    </h2>
+    <button type="button" (click)="close.emit()" aria-label="Close filters" class="flex items-center justify-center rounded-full border border-border-hairline p-2 text-outline transition hover:bg-surface-container hover:text-gold-antique focus:outline-none">
+        <i class="fa fa-xmark text-[18px] leading-none"></i>
+    </button>
+</div>
+
+<div class="flex-1 overflow-y-auto overscroll-contain px-5 py-space-md">
+    <ng-container [ngTemplateOutlet]="fields" />
+</div>
+
+<div class="grid shrink-0 grid-cols-2 gap-3 border-t border-border-hairline bg-surface-dim px-5 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+    <button type="button" (click)="resetFilters()" [disabled]="!activeCount()" class="border border-border-hairline px-3 py-3 font-label-caps text-label-caps font-medium uppercase tracking-widest text-cream-parchment transition-colors hover:border-gold-antique hover:text-gold-antique disabled:cursor-not-allowed disabled:opacity-40">
+        Clear All
+    </button>
+    <button type="button" (click)="apply.emit()" class="bg-gold-antique px-3 py-3 font-label-caps text-label-caps font-semibold uppercase tracking-widest text-surface-container-lowest transition-colors hover:bg-gold-shimmer">
+        Show {{ resultCount() }} Results
+    </button>
+</div>
+}
+
+<!-- ===== Shared filter fields ===== -->
+<ng-template #fields>
+    <div class="space-y-space-lg">
+        <fieldset>
+            <legend class="mb-space-sm font-label-caps text-label-caps uppercase tracking-[0.2em] text-gold-antique">
+                Olfactive Family
+            </legend>
+            <div class="space-y-1">
+                @for (f of families; track f) {
+                <label class="flex cursor-pointer items-center justify-between py-1.5 text-on-surface transition-colors hover:text-gold-shimmer">
+                    <span class="font-body-muted text-body-muted">{{ f }}</span>
+                    <input type="checkbox" class="h-4 w-4 rounded border-gold-antique/40 bg-surface-dim accent-gold-antique" [checked]="selFamilies().includes(f)" (change)="toggleIn(selFamilies, f)" />
+                </label>
+                }
+            </div>
+        </fieldset>
+
+        <fieldset class="border-t border-border-hairline/60 pt-space-md">
+            <legend class="mb-space-sm font-label-caps text-label-caps uppercase tracking-[0.2em] text-gold-antique">
+                Concentration
+            </legend>
+            <div class="space-y-1">
+                @for (c of concentrations; track c.percent) {
+                <label class="flex cursor-pointer items-center justify-between py-1.5 text-on-surface transition-colors hover:text-gold-shimmer">
+                    <span class="font-body-muted text-body-muted">{{ c.label }}</span>
+                    <input type="checkbox" class="h-4 w-4 rounded border-gold-antique/40 bg-surface-dim accent-gold-antique" [checked]="selConcentrations().includes(c.percent)" (change)="toggleIn(selConcentrations, c.percent)" />
+                </label>
+                }
+            </div>
+        </fieldset>
+
+        <fieldset class="border-t border-border-hairline/60 pt-space-md">
+            <legend class="mb-space-sm font-label-caps text-label-caps uppercase tracking-[0.2em] text-gold-antique">
+                Volume
+            </legend>
+            <div class="space-y-1">
+                @for (s of sizes; track s) {
+                <label class="flex cursor-pointer items-center justify-between py-1.5 text-on-surface transition-colors hover:text-gold-shimmer">
+                    <span class="font-body-muted text-body-muted">{{ s }} ml Flacon</span>
+                    <input type="checkbox" class="h-4 w-4 rounded border-gold-antique/40 bg-surface-dim accent-gold-antique" [checked]="selSizes().includes(s)" (change)="toggleIn(selSizes, s)" />
+                </label>
+                }
+            </div>
+        </fieldset>
+
+        <fieldset class="border-t border-border-hairline/60 pt-space-md">
+            <legend class="mb-space-sm font-label-caps text-label-caps uppercase tracking-[0.2em] text-gold-antique">
+                Price
+            </legend>
+            <div class="mb-space-xs flex items-center justify-between font-label-caps text-label-caps text-gold-champagne">
+                <span>${{ priceMin }}</span>
+                <span class="text-gold-shimmer">Up to ${{ maxPrice() }}</span>
+                <span>${{ priceMax }}</span>
+            </div>
+            <input type="range" [min]="priceMin" [max]="priceMax" step="5" [value]="maxPrice()" (input)="onPrice($event)" aria-label="Maximum price" class="w-full cursor-pointer accent-gold-antique" />
+        </fieldset>
+    </div>
+</ng-template>

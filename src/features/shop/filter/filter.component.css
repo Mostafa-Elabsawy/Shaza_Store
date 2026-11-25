@@ -1,0 +1,5 @@
+/* Let the variant markup sit directly under the shop's layout wrappers
+   (the desktop <aside> and the mobile bottom-sheet flex column). */
+:host {
+  display: contents;
+}
